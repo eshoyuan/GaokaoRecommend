@@ -1,0 +1,1 @@
+There is a project from SEU. Our teammates are Wu Yongliang, Shen Yangyang, Guo Wen, Yuan Yixiao, Wang Kangqi. In this project, we are trying to establish a recommender system of National College Entrance Examnation.
