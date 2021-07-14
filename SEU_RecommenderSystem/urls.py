@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import testdb
+from django.conf.urls import url
+# 设置了默认视图为首页
 
 urlpatterns = [
+    url(r'^', include('recommend.urls')),
     path('admin/', admin.site.urls),
     path('recommend/', include(('recommend.urls', 'recommend'), namespace='recommend')),
-    path('testdb/', testdb.testdb)
 ]
