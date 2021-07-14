@@ -15,6 +15,7 @@ class Migration(migrations.Migration):
             name='CollegeApplication',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('year_int', models.IntegerField(max_length=10)),
                 ('school_text', models.CharField(max_length=20)),
                 ('major_text', models.CharField(max_length=20)),
                 ('score_int', models.IntegerField(max_length=3)),
