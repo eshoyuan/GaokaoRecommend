@@ -4,4 +4,4 @@ from django.shortcuts import render
 def index(request):
     return HttpResponse("Hello, world. This index is for recommender.")
 def welcome(request):
-    return render(request, "welcome.html")
+    return render(request, "recommend/welcome.html")
