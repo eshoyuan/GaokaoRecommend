@@ -2,7 +2,7 @@ import csv
 from recommend.models import CollegeApplication
 
 # 输入 python manage.py shell， 复制整个代码粘贴后运行即可
-file_path = 'SEU_RecommenderSystem/syy_crawer/16-20.csv'  # 此处为需要写入的csv文件地址
+file_path = 'crawer/16-20.csv'  # 此处为需要写入的csv文件地址
 with open(file_path, 'r', encoding='UTF-8') as f:
     reader = csv.reader(f)
     for row in reader:
