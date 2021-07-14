@@ -14,9 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
+from django.conf.urls import url
+# 设置了默认视图为首页
 
 urlpatterns = [
+    url(r'^', include('recommend.urls')),
     path('admin/', admin.site.urls),
     path('recommend/', include(('recommend.urls', 'recommend'), namespace='recommend')),
 ]

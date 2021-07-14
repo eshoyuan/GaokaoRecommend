@@ -18,7 +18,7 @@ class CollegeApplication(models.Model):
     # 提前批or普通一批，布尔类型，adv提前批为1，普通一批com为0
     adv_or_com = models.BooleanField()
     # 专业详情
-    major_situation_text = models.CharField(max_length=200,default='')
+    major_situation_text = models.CharField(max_length=200, default='')
 
     # 定义了一个函数，查询时会返回学校名字+专业
     def __str__(self):
