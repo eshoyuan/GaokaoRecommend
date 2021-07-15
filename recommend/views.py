@@ -17,11 +17,15 @@ def welcome_output(request):
         sciOrLib = 0
     else:
         sciOrLib = 1
-    temp = ""
+    temp1 = ""
+    temp2="----------------------------------------------"+"<br>"
     List = CollegeApplication.objects.filter(year_int=2020).filter(range_int__gt=Range).filter(sci_or_lib=sciOrLib).order_by(sorter1)[0:20]
     for var in List:
-        temp += var.school_text + "-" + var.major_text + "-" + str(var.score_int) + "-" + str(var.range_int) + "<br>"
-    response = temp
+        if (var.adv_or_com==1):
+            temp1 += var.school_text + "-" + var.major_text + "-" + str(var.score_int) + "-" + str(var.range_int)+'-提前批'+"<br>"
+        else:
+            temp2 += var.school_text + "-" + var.major_text + "-" + str(var.score_int) + "-" + str(var.range_int)+'-本科批'+"<br>"
+    response = temp1+temp2
     return HttpResponse(response)
 
 
