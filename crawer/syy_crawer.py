@@ -140,6 +140,20 @@ university_211 = [
     '北京外国语大学',
     '北京中医药大学']  # 211院校
 
+
+def is_985(name):
+    if name not in university_985:
+        return 0
+    else:
+        return 1
+
+
+def is_211(name):
+    if name not in university_211:
+        return 0
+    else:
+        return 1
+
 # 读取大学名称列表
 universityDir = "./17-19录取分数爬虫"
 x = os.listdir(universityDir)
@@ -199,7 +213,7 @@ def get_text(university=0, batchName=0, yearNum=0):
 
 
 # 保存路径设置
-path = '16-20.csv'
+path = 'new16-20.csv'
 
 
 # 解析数据并写入csv文件
@@ -218,10 +232,13 @@ def get_csv(uname, batch, year):
         minScore = i['minScore']
         minScoreOrder = i['minScoreOrder']
         yearNum = i['year']
+        is985 = is_985(i['legalName'])
+        is211 = is_211(i['legalName'])
         if minScore != '':
             scoreData.append(
-                [university, simpleMajorName, majorNameDesc, yearNum, minScore, minScoreOrder, curriculum, batchName])
-    df = pd.DataFrame(scoreData, columns=['院校', '专业', '专业详情', '年份', '最低分', '位次', '科目', '批次'])
+                [university, simpleMajorName, majorNameDesc, yearNum,
+                 minScore, minScoreOrder, curriculum, batchName, is985, is211])
+    df = pd.DataFrame(scoreData, columns=['院校', '专业', '专业详情', '年份', '最低分', '位次', '科目', '批次', '985', '211'])
     if os.path.exists(path):
         df.to_csv(path, index=False, mode='a', header=None, encoding="utf_8_sig")
     else:
