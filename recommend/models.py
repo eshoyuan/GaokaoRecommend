@@ -23,3 +23,6 @@ class CollegeApplication(models.Model):
     # 定义了一个函数，查询时会返回学校名字+专业
     def __str__(self):
         return self.school_text + self.major_text
+    #定义数据表
+    class Meta:
+        db_table='recommend_collegeapplication'
