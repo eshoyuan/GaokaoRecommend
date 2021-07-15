@@ -12324,5 +12324,13 @@ p.remind-43 {
   clear: both;
   display: table;
 }
-
+/*.video.divVideo {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: #fff url(/static/recommend/assets/img/bg.jpg) no-repeat right bottom;*/
+/*    background-size: cover;*/
+/*    position: absolute;*/
+/*    top: 28px;*/
+/*    left: 0;*/
+/*}*/
 /*# sourceMappingURL=slides.css.map */

@@ -116,7 +116,7 @@
 <nav class="panel top">
     <div class="sections desktop">
         <div class="center">
-            <p><span style="font-family: 华文行楷;size: landscape "> 前程似锦 </span></p>
+{#            <p><span style="font-family: 华文行楷;size: landscape "> 前程似锦 </span></p>#}
         </div>
     </div>
 </nav>
@@ -193,9 +193,15 @@
           </div>-->
           <p class="ae-3"><span class="opacity-8">请填写您的 <b>高考信息</b> 并点击开始</span></p>
           <form class="slides-form" action="#" autocomplete="off">
-            <input type="email" class="input-9 ae-4 fromCenter" name="Province" placeholder="所在省份" val=""/>
-            <input type="password" class="input-9 ae-5 fromCenter" name="flag" placeholder="文/理科" val=""/>
-            <input type="password" class="input-9 ae-6 fromCenter" name="number" placeholder="全省位次" val=""/>
+            <select type="prov" class="input-9 ae-4 fromCenter">
+              <option selected="selected" disabled>省份</option>
+  <option value ="河南">河南</option> </select>
+
+<!--            <input type="email" class="input-9 ae-4 fromCenter" name="user-email" placeholder="省份" val=""/>-->
+            <input type="password" class="input-9 ae-5 fromCenter" name="user-password" placeholder="排位" val=""/>
+<!--            <input type="password" class="input-9 ae-6 fromCenter" name="confirm-password" placeholder="文/理" val=""/>-->
+            <select type="wenli" class="input-9 ae-6 fromCenter"> <option selected="selected" disabled>文/理科</option>
+  <option value ="理科">理科</option>  <option value ="文科">文科</option> </select>
             <button type="submit" class="button blue gradient ae-7 fromCenter" name="button">开始</button>
           </form>
         </div>
@@ -203,25 +209,28 @@
       </div>
     </div>
   </div>
-    {% load static %}
-  <div class="background" style="background-image:url({%  static 'recommend/assets/img/background/img-95.jpg'%})"></div>
+    <div class="divVideo" id="divVideo">
+        {% load static %}
+    <video autoplay muted loop src="{% static 'recommend/video/bg.mp4' %}" width="100%"
+    height="100%"  id="bgvideo"></video>
+</div>
 </section>
 
 <!-- Popup Video -->
-<div class="popup autoplay" data-popup-id="9">
-  <div class="close"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use></svg></div>
-  <div class="content">
-    <div class="container">
-      <div class="wrap">
-        <div class="fix-10-12">
-          <div class="embedVideo popupContent">
-            <iframe src="//player.bilibili.com/player.html?aid=62087058&bvid=BV1ft411u7N3&cid=108001648&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{#<div class="popup autoplay" data-popup-id="9">#}
+{#  <div class="close"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use></svg></div>#}
+{#  <div class="content">#}
+{#    <div class="container">#}
+{#      <div class="wrap">#}
+{#        <div class="fix-10-12">#}
+{#          <div class="embedVideo popupContent">#}
+{#            <iframe src="//player.bilibili.com/player.html?aid=62087058&bvid=BV1ft411u7N3&cid=108001648&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
 
 
 <!-- Slide 2 (#15) -->
