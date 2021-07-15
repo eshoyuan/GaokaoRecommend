@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Results page</title>
+  </head>
+  <body>
+  {% if list %}
+    <ul>
+    {% for results in list %}
+        <li>{{ results.school_text }}{{ results.major_text }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No recommend are available.</p>
+{% endif %}
+    <p>This is my results</p>
+  </body>
+</html>
