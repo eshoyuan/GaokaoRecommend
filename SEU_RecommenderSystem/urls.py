@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^', include('recommend.urls')),
     path('admin/', admin.site.urls),
     path('recommend/', include(('recommend.urls', 'recommend'), namespace='recommend')),
-    path('testdb/', testdb.testdb)
+    path('testdb/', testdb.testdb),
+    path('rec/', views.recResuts, name='rec'),
 ]
