@@ -6,7 +6,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 
 	<!-- Page Title -->
-	<title>New Template — Slides 4.1 Template Generator</title>
+	<title>新高考志愿推荐系统</title>
 
 	<!-- Compressed Styles -->
 	<!--<link href="css/slides.min.css?41331" rel="stylesheet" type="text/css"> -->
@@ -114,6 +114,14 @@
 
 <!-- Panel Top #08 -->
 <nav class="panel top">
+    <div class="sections desktop">
+        <div class="center">
+            <p><span style="font-family: 华文行楷;size: landscape "> 前程似锦 </span></p>
+        </div>
+    </div>
+</nav>
+
+<!--<nav class="panel top">
   <div class="sections desktop">
     <div class="left"><a href="#" title="Slides Framework"><svg style="width:82px;height:24px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo"></use></svg></a></div>
     <div class="center">
@@ -136,7 +144,7 @@
     <div class="left"><a href="#" title="Slides Framework"><svg style="width:82px;height:24px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo"></use></svg></a></div>
     <div class="right"><span class="button actionButton sidebarTrigger" data-sidebar-id="1"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu"></use></svg></span></div>
   </div>
-</nav>
+</nav>-->
 
 <!-- Sidebar -->
 <nav class="sidebar" data-sidebar-id="1">
@@ -176,18 +184,19 @@
       <div class="wrap">
 
         <div class="fix-12-12">
-          <div class="fix-3-12">
+          <!--<div class="fix-3-12">
             <svg height="77" class="wide ae-1 fromCenter"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo"></use></svg>
-          </div>
-          <div class="button play small white popupTrigger ae-2 fromCenter margin-top-6 margin-bottom-6" data-popup-id="9">
+          </div>-->
+            <p><span style="font-family: 华光楷体一_CNKI;font-size: 64px "> 新高考志愿推荐 </span></p>
+          <!--视频按钮<div class="button play small white popupTrigger ae-2 fromCenter margin-top-6 margin-bottom-6" data-popup-id="9">
             <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#play"></use></svg>
-          </div>
-          <p class="ae-3"><span class="opacity-8">Start now and get <b>free bonus</b> on account</span></p>
+          </div>-->
+          <p class="ae-3"><span class="opacity-8">请填写您的 <b>高考信息</b> 并点击开始</span></p>
           <form class="slides-form" action="#" autocomplete="off">
-            <input type="email" class="input-9 ae-4 fromCenter" name="user-email" placeholder="Email" val=""/>
-            <input type="password" class="input-9 ae-5 fromCenter" name="user-password" placeholder="Password" val=""/>
-            <input type="password" class="input-9 ae-6 fromCenter" name="confirm-password" placeholder="Confirm the password" val=""/>
-            <button type="submit" class="button blue gradient ae-7 fromCenter" name="button">Get Started</button>
+            <input type="email" class="input-9 ae-4 fromCenter" name="Province" placeholder="所在省份" val=""/>
+            <input type="password" class="input-9 ae-5 fromCenter" name="flag" placeholder="文/理科" val=""/>
+            <input type="password" class="input-9 ae-6 fromCenter" name="number" placeholder="全省位次" val=""/>
+            <button type="submit" class="button blue gradient ae-7 fromCenter" name="button">开始</button>
           </form>
         </div>
 
@@ -195,7 +204,7 @@
     </div>
   </div>
     {% load static %}
-  <div class="background" style="background-image:url({%  static 'recommend/assets/img/background/img-89.jpg'%})"></div>
+  <div class="background" style="background-image:url({%  static 'recommend/assets/img/background/img-95.jpg'%})"></div>
 </section>
 
 <!-- Popup Video -->
