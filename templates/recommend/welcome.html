@@ -192,17 +192,17 @@
             <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#play"></use></svg>
           </div>-->
           <p class="ae-3"><span class="opacity-8">请填写您的 <b>高考信息</b> 并点击开始</span></p>
-          <form class="slides-form" action="#" autocomplete="off">
+          <form class="slides-form" action="/recommend/welcome.html/output" method="get" autocomplete="off">
             <select type="prov" class="input-9 ae-4 fromCenter">
               <option selected="selected" disabled>省份</option>
-  <option value ="河南">河南</option> </select>
+  <option value ="河北">河北</option> </select>
 
 <!--            <input type="email" class="input-9 ae-4 fromCenter" name="user-email" placeholder="省份" val=""/>-->
-            <input type="password" class="input-9 ae-5 fromCenter" name="user-password" placeholder="排位" val=""/>
+            <input type="number" class="input-9 ae-5 fromCenter" name="input_range" placeholder="排位" val=""/>
 <!--            <input type="password" class="input-9 ae-6 fromCenter" name="confirm-password" placeholder="文/理" val=""/>-->
-            <select type="wenli" class="input-9 ae-6 fromCenter"> <option selected="selected" disabled>文/理科</option>
+            <select type="wenli" class="input-9 ae-6 fromCenter" name="sci_or_lib"> <option selected="selected" disabled>文/理科</option>
   <option value ="理科">理科</option>  <option value ="文科">文科</option> </select>
-            <button type="submit" class="button blue gradient ae-7 fromCenter" name="button"><a href="/rec/">开始</a></button>
+            <button type="submit" class="button blue gradient ae-7 fromCenter" name="button"><a>开始</a></button>
           </form>
         </div>
 
