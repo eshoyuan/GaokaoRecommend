@@ -19,10 +19,15 @@ class CollegeApplication(models.Model):
     adv_or_com = models.BooleanField()
     # 专业详情
     major_situation_text = models.CharField(max_length=200, default='')
+    # 985
+    is_985 = models.BooleanField(default=0)
+    # 211
+    is_211 = models.BooleanField(default=0)
 
     # 定义了一个函数，查询时会返回学校名字+专业
     def __str__(self):
         return self.school_text + self.major_text
-    #定义数据表
+
+    # 定义数据表
     class Meta:
-        db_table='recommend_collegeapplication'
+        db_table = 'recommend_application'
