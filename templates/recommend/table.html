@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>年份   学校   专业  最低名次</title>
+</head>
+<body>
+  {% for item in collegeapplication %}
+  <p>
+        {{item.year_int}}
+      {{'-'}}
+      {{item.school_text}}{{'-'}}
+  {{item.major_text}}{{'-'}}
+  {{'名次:'}}{{item.range_int}}</p>
+  {% endfor %}
+</body>
+</html>
