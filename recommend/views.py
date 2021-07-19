@@ -38,3 +38,9 @@ def results(request):
         'list': results_list,
     }
     return HttpResponse(template.render(context, request))
+#返回历年数据
+def collegetext(request):
+    collegeapplication=CollegeApplication.objects.all()
+    return render(request,'recommend/table.html',{
+        'collegeapplication':collegeapplication
+    })
