@@ -8,22 +8,17 @@ from recommend.models import CollegeApplication
 # 0表示不作要求，1表示有要求；对于'要求'，0表示多选一，1表示多选多
 def parser(subject):
     subject_request = {'物': 0, '化': 0, '生': 0, '政': 0, '史': 0, '地': 0, '要求': 0}
-    if subject == '不限':
-        return subject_request
-    elif len(subject) == 1:
-        subject_request[subject] = 1
-        return subject_request
-    elif '/' in subject:
-        for i in len(subject):
-            if subject[i] != '/':
-                subject_request[subject[i]] = 1
-        return subject_request
-    elif '、' in subject:
-        for i in len(subject):
-            if subject[i] != '、':
-                subject_request[subject[i]] = 1
-        subject_request['要求'] = 1
-        return subject_request
+    requirement1 = subject.split('/')
+    requirement2 = subject.split('、')
+    if subject != '不限':
+        if len(requirement1) >= len(requirement2):
+            for i in requirement1:
+                subject_request[i] = 1
+        else:
+            for i in requirement2:
+                subject_request[i] = 1
+            subject_request['要求'] = 1
+    return subject_request
 
 
 file_path = 'crawler/2020shandong.csv'  # 此处为需要写入的csv文件地址
