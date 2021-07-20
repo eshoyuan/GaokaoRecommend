@@ -37,6 +37,6 @@ class CollegeApplication(models.Model):
 class CollegeInformation(models.Model):
     school_text = models.CharField(max_length=20)
     # 排名平均值，浮点数
-    range_ave_int = models.FloatField()
+    range_ave_float = models.FloatField()
     # 排名方差，浮点数
-    range_ave_int = models.FloatField()
+    range_var_float = models.FloatField()
