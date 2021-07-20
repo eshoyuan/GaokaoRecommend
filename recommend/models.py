@@ -31,3 +31,12 @@ class CollegeApplication(models.Model):
     # 定义数据表
     class Meta:
         db_table = 'recommend_application'
+
+
+# 用作展示某个院校所有专业的平均位次，方差等数据，也作为院校选择的一部分因素，权衡学校内部专业水平
+class CollegeInformation(models.Model):
+    school_text = models.CharField(max_length=20)
+    # 排名平均值，浮点数
+    range_ave_int = models.FloatField()
+    # 排名方差，浮点数
+    range_ave_int = models.FloatField()
