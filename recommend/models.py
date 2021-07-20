@@ -1,10 +1,8 @@
 from django.db import models
 
 
-# 志愿类
+# 2020年志愿的详情，作为推荐的主要因素
 class CollegeApplication(models.Model):
-    # 年份，整型，默认为2020年
-    year_int = models.IntegerField()
     # 学校名字，字符
     school_text = models.CharField(max_length=20)
     # 专业名字，字符
@@ -12,11 +10,7 @@ class CollegeApplication(models.Model):
     # 最低分数，整型，不超过999
     score_int = models.IntegerField()
     # 排名，整型
-    range_int = models.IntegerField()
-    # 理科or文科，布尔类型，理科sci为1，文科lib为0
-    sci_or_lib = models.BooleanField()
-    # 提前批or普通一批，布尔类型，adv提前批为1，普通一批com为0
-    adv_or_com = models.BooleanField()
+    rank_int = models.IntegerField()
     # 专业详情
     major_situation_text = models.CharField(max_length=200, default='')
     # 985
@@ -33,10 +27,28 @@ class CollegeApplication(models.Model):
         db_table = 'recommend_application'
 
 
-# 用作展示某个院校所有专业的平均位次，方差等数据，也作为院校选择的一部分因素，权衡学校内部专业水平
+# 用作2020年某个院校所有专业的平均位次，方差等数据，也作为院校选择的一部分因素，权衡学校内部专业水平
 class CollegeInformation(models.Model):
     school_text = models.CharField(max_length=20)
     # 排名平均值，浮点数
-    range_ave_float = models.FloatField()
+    rank_ave_float = models.FloatField()
     # 排名方差，浮点数
-    range_var_float = models.FloatField()
+    rank_var_float = models.FloatField()
+
+
+# 用作展示某个院校某个专业的位次变化，用作图表表示趋势
+class MajorRank(models.Model):
+    # 学校名字，字符
+    school_text = models.CharField(max_length=20)
+    # 专业名字，字符
+    major_text = models.CharField(max_length=20)
+    # 2016排名，整型
+    rank_2016 = models.IntegerField()
+    # 2017排名，整型
+    rank_2017 = models.IntegerField()
+    # 2018排名，整型
+    rank_2018 = models.IntegerField()
+    # 2019排名，整型
+    rank_2019 = models.IntegerField()
+    # 2020排名，整型
+    rank_2020 = models.IntegerField()
