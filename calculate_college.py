@@ -9,9 +9,9 @@ with open(file_path, 'r', encoding='UTF-8') as f:
     reader = csv.reader(f)
     schools = {row[0] for row in reader if reader.line_num != 1}
     for school in schools:
-        ranges = [row[5] for row in reader if row[0] == school]
-        mean = np.mean(ranges)
-        var = np.var(ranges)
+        ranks = [row[5] for row in reader if row[0] == school]
+        mean = np.mean(ranks)
+        var = np.var(ranks)
         CollegeInformation.objects.update_or_create(school_text=school,
                                                     range_ave_float=mean,
                                                     range_var_float=var,
