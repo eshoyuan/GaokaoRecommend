@@ -48,16 +48,20 @@ class CollegeInformation(models.Model):
 # 用作展示某个院校某个专业的位次变化，用作图表表示趋势
 class MajorRank(models.Model):
     # 学校名字，字符
-    school_text = models.CharField(max_length=20)
+    objects = None
+    school_text = models.CharField(max_length=40)
     # 专业名字，字符
-    major_text = models.CharField(max_length=20)
+   #major_text = models.CharField(max_length=20)
     # 2016排名，整型
-    rank_2016 = models.IntegerField(default=0)
+    rank_2016 = models.IntegerField()
     # 2017排名，整型
-    rank_2017 = models.IntegerField(default=0)
+    rank_2017 = models.IntegerField()
     # 2018排名，整型
-    rank_2018 = models.IntegerField(default=0)
+    rank_2018 = models.IntegerField()
     # 2019排名，整型
-    rank_2019 = models.IntegerField(default=0)
+    rank_2019 = models.IntegerField()
     # 2020排名，整型
-    rank_2020 = models.IntegerField(default=0)
+    #rank_2020 = models.IntegerField(default=0)
+    class Meta:
+        db_table = 'recommend_majorrank'
+
