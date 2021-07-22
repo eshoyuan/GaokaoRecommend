@@ -1,7 +1,7 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.template import loader
 from .models import CollegeApplication
+from django import forms
 
 
 def welcome(request):
@@ -18,29 +18,37 @@ def welcome_output(request):
     else:
         sciOrLib = 1
     temp1 = ""
-    temp2="----------------------------------------------"+"<br>"
-    List = CollegeApplication.objects.filter(year_int=2020).filter(range_int__gt=Range).filter(sci_or_lib=sciOrLib).order_by(sorter1)[0:20]
+    temp2 = "----------------------------------------------" + "<br>"
+    List = CollegeApplication.objects.filter(year_int=2020).filter(range_int__gt=Range).filter(
+        sci_or_lib=sciOrLib).order_by(sorter1)[0:20]
     for var in List:
-        if var.adv_or_com==1:
+        if var.adv_or_com == 1:
             temp1 += var.school_text + "-" + var.major_text + "-" + str(var.score_int) + "-" + str(var.range_int) \
                      + '-提前批' + "-" + "985:" + str(var.is_985) + "-" + "211:" + str(var.is_211) + "<br>"
         else:
             temp2 += var.school_text + "-" + var.major_text + "-" + str(var.score_int) + "-" + str(var.range_int) \
                      + '-本科批' + "-" + "985:" + str(var.is_985) + "-" + "211:" + str(var.is_211) + "<br>"
-    response = temp1+temp2
+    response = temp1 + temp2
     return HttpResponse(response)
 
 
+class RankForm(forms.Form):
+    Rank = forms.IntegerField(label='Your Rank')
+
+
 def results(request):
-    results_list = CollegeApplication.objects.filter(year_int=2020).order_by('range_int')[0:19]
-    template = loader.get_template('recommend/results.html')
-    context = {
-        'list': results_list,
-    }
-    return HttpResponse(template.render(context, request))
-#返回历年数据
+    if request.method == 'GET':
+        form = RankForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect("/results/")
+        else:
+            form = RankForm()
+    return render(request, 'welcome.html')
+
+
+# 返回历年数据
 def collegetext(request):
-    collegeapplication=CollegeApplication.objects.all()
-    return render(request,'recommend/table.html',{
-        'collegeapplication':collegeapplication
+    collegeapplication = CollegeApplication.objects.all()
+    return render(request, 'recommend/table.html', {
+        'collegeapplication': collegeapplication
     })
