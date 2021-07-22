@@ -6,7 +6,7 @@ import numpy as np
 def GM11(x, n):
     '''
     灰色预测
-    x：序列，numpy对象
+    x：序列，numpy对象，已知的数据
     n:需要往后预测的个数
     '''
     x1 = x.cumsum()  # 一次累加
@@ -36,16 +36,9 @@ def GM11(x, n):
     predict: List[Any] = list()
     for index in range(x.shape[0] + 1, x.shape[0] + n + 1):
         predict.append((x[0] - b / a) * np.exp(-a * (index - 1)) - (x[0] - b / a) * np.exp(-a * (index - 2)))
-    predict = np.array(predict)
+    # 结果保留整数
+    predict = np.round(np.array(predict),0)
+    print('预测值:', predict)
+    print('模型精度:', result[1])
     return [predict, assess]
 
-
-# 读入目前已经有的数据
-data = np.array([1, 66, 1, 57, 1, 139])
-# 需要往后预测的数据数量
-y = 3
-result = GM11(data, y)
-# 结果保留整数
-predict = np.round(result[0], 0)
-print('预测值:', predict)
-print('模型精度:', result[1])
