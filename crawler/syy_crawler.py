@@ -254,4 +254,3 @@ for i in range(len(universities)):
     for j in range(len(batchNames)):
         for k in range(len(years)):
             get_csv(i, j, k, path)
-

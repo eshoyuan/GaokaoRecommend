@@ -48,18 +48,40 @@
         <div class="fix-12-12">
             <p><span style="font-family: 华光楷体一_CNKI;font-size: 64px "> 新高考志愿推荐 </span></p>
 
-          <p class="ae-3"><span class="opacity-8">请填写您的 <b>高考信息</b> 并点击开始</span></p>
+          <p class="ae-3"><span class="opacity-8">请填写您的 <b>高考信息</b> 并点击查询</span></p>
           <form class="slides-form" action="/recommend/welcome.html/output" method="get" autocomplete="off">
             <select type="prov" class="input-9 ae-4 fromCenter">
               <option selected="selected" disabled>省份</option>
-  <option value ="河北">河北</option> </select>
+  <option value ="河北">山东</option> </select>
             <input type="number" class="input-9 ae-5 fromCenter" name="input_range" placeholder="排位" val=""/>
-            <select type="wenli" class="input-9 ae-6 fromCenter" name="sci_or_lib"> <option selected="selected" disabled>文/理科</option>
-  <option value ="理科">理科</option>  <option value ="文科">文科</option> </select>
-            <button type="submit" class="button blue gradient ae-7 fromCenter" name="button"><a>开始</a></button>
           </form>
+<script language="javascript">
+function chkbox(elm)
+{
+    var obj=document.getElementsByName("cbox");
+    var num=0;
+    for (var i=0;i<obj.length ;i++ )
+        if (obj[i].checked) num++;
 
-           <p class="ae-3"><span class="opacity-8">历年<b>录取信息</b> 点击查询</span></p>
+    if (num>3){
+        alert("最多可以选择三个！");
+        for (var i=0;i<obj.length ;i++){
+            elm.checked=false;
+        }
+    }
+}
+</script>
+
+</head>
+            <br>
+ <p class="ae-3"><span class="opacity-8">选科情况</span></p>
+<label> <input type="checkbox" name="cbox" value="物理" onclick="chkbox(this);">物理</label>
+<label><input type="checkbox" name="cbox" value="历史" onclick="chkbox(this);">历史</label>
+<label><input type="checkbox" name="cbox" value="政治" onclick="chkbox(this);">政治</label>
+<label><input type="checkbox" name="cbox" value="地理" onclick="chkbox(this);">地理</label>
+<label><input type="checkbox" name="cbox" value="化学" onclick="chkbox(this);">化学</label>
+<label><input type="checkbox" name="cbox" value="生物" onclick="chkbox(this);">生物</label>
+
           <form class="slides-form" action="/recommend/" method="get" autocomplete="off">
              <button type="submit" class="button blue gradient ae-7 fromCenter" name="button"><a>查询</a></button>
           </form>
