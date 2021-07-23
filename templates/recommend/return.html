@@ -127,11 +127,11 @@
                     {% for results in collegeapplication %}
                         {% if forloop.counter == 1 %}
                             {% load static %}
-                <li class="selected"><p><img src={%  static 'return/assets/img/{results.school_text}.jpg'%} class="wide" alt="iPhone Thumbnail"/>{{ results.school_text }}{{ results.major_text}}</p></li>
+                <li class="selected"><p><img src={%  static 'return/assets/img/{results.school_text}.jpg'%} class="wide" alt="iPhone Thumbnail"/>{{ results.school_text }}{{ results.major_text}}-{{ results.rank_int }}</p></li>
                         {% else %}
                         {% if forloop.counter  < 4 %}
                             {% load static %}
-                             <li><img src="assets/img/重庆大学.jpg" class="wide" alt="iPhone Thumbnail"/>{{ results.school_text }}{{ results.major_text}}</li>
+                             <li><img src="assets/img/重庆大学.jpg" class="wide" alt="iPhone Thumbnail"/>{{ results.school_text }}{{ results.major_text}}-{{ results.rank_int }}</li>
                         {% endif %}
                         {% endif %}
                     {% endfor %}
@@ -147,17 +147,19 @@
             </ul>
             <ul class="controller dots ae-3 fromBottom" data-slider-id="82-0">
               <li class="dot selected"></li>
-              <li class="dot"></li>
-              <li class="dot"></li>
-              <li class="dot"></li>
+              <li class="dot selected"></li>
+              <li class="dot selected"></li>
+              <li class="dot selected"></li>
             </ul>
           </div>
-          <div class="fix-7-12 margin-top-2">
+            <!--
+            <div class="fix-7-12 margin-top-2">
             <h1 class="ae-5 fronLeft">The main reason</h1>
             <div class="light ae-6 fromrRight">
               <p class="opacity-8">There&rsquo;s a subtle reason that programmers always want to throw away the code and start over.</p>
               <a href="#" class="button blue gradient cropBottom ae-7 fromCenter"><i class="material-icons small">textsms</i> Say Hello</a>
             </div>
+            -->
           </div>
         </div>
 
@@ -168,7 +170,7 @@
   <div class="background" style="background-image:url({%  static 'return/assets/img/background/img-82.jpg'%})"></div>
 </section>
 
-<!-- Panel Bottom #12 -->
+
 <nav class="panel bottom lastSlideOnly">
   <div class="sections desktop">
     <div class="left"><a href="#" class="button hollow"><img src="assets/img/appstore.jpg" width="112" height="42"/></a></div>
@@ -198,7 +200,7 @@
   </div>
 </nav>
 
-<!-- Sidebar -->
+
 <nav class="sidebar" data-sidebar-id="1">
   <div class="close"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use></svg></div>
   <div class="content">

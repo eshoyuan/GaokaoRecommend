@@ -7,6 +7,6 @@ from django.conf.urls import url
 urlpatterns = [
     path('results.html/', views.results),
     path('welcome.html/', views.welcome),
-    path('welcome.html/output', views.welcome_output),
-    path('',views.collegetext),#返回历年录取数据
+    path('welcome.html/output', views.new_page),
+    path('', views.new_page),  # 返回历年录取数据
 ]
