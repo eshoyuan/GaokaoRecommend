@@ -5,15 +5,15 @@
     <title>My Results page</title>
   </head>
   <body>
-  {% if list %}
-    <ul>
-    {% for results in list %}
-        <li>{{ results.school_text }}{{ results.major_text }}</li>
+  {% if collegeapplication%}
+    {% for results in collegeapplication %}
+         {% if forloop.counter < 4 %}
+        <li>{{ results.school_text }}{{ results.major_text}}</li>
+        {% endif %}
     {% endfor %}
-    </ul>
-{% else %}
+  {% else %}
     <p>No recommend are available.</p>
-{% endif %}
+  {% endif %}
     <p>This is my results</p>
   </body>
 </html>
