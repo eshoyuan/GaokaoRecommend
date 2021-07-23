@@ -82,6 +82,8 @@ def results(request):
 def new_page(request):
     Range = request.GET.get("input_range")
     result = CollegeApplication.objects.all().filter(rank_int__gt=Range).order_by('rank_int')
+    # for i in result:
+    #     path=
     return render(request, 'recommend/return.html', {  # 由table.html修改为results.html
         'collegeapplication': result
     })

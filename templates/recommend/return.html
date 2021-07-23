@@ -127,11 +127,11 @@
                     {% for results in collegeapplication %}
                         {% if forloop.counter == 1 %}
                             {% load static %}
-                <li class="selected"><p><img src={%  static 'return/assets/img/{results.school_text}.jpg'%} class="wide" alt="iPhone Thumbnail"/>{{ results.school_text }}{{ results.major_text}}-{{ results.rank_int }}</p></li>
+                <li class="selected"><p><img src="/static/return/assets/img/{{results.school_text}}.jpg" class="wide" alt="iPhone Thumbnail"/>{{ results.school_text }}{{ results.major_text}}-{{ results.rank_int }}</p></li>
                         {% else %}
                         {% if forloop.counter  < 4 %}
                             {% load static %}
-                             <li><img src="assets/img/重庆大学.jpg" class="wide" alt="iPhone Thumbnail"/>{{ results.school_text }}{{ results.major_text}}-{{ results.rank_int }}</li>
+                             <li><p><img src="/static/return/assets/img/{{results.school_text}}.jpg" class="wide" alt="iPhone Thumbnail"/>{{ results.school_text }}{{ results.major_text}}-{{ results.rank_int }}</p></li>
                         {% endif %}
                         {% endif %}
                     {% endfor %}
@@ -146,7 +146,6 @@
 <!--              <li><img src="assets/img/iphone-82-4.png" class="wide" alt="iPhone Thumbnail"/></li>-->
             </ul>
             <ul class="controller dots ae-3 fromBottom" data-slider-id="82-0">
-              <li class="dot selected"></li>
               <li class="dot selected"></li>
               <li class="dot selected"></li>
               <li class="dot selected"></li>
@@ -167,7 +166,7 @@
     </div>
   </div>
      {% load static %}
-  <div class="background" style="background-image:url({%  static 'return/assets/img/background/img-82.jpg'%})"></div>
+  <div class="background" style="background-image:url({%  static 'return/assets/img/background/bg.jpg'%})"></div>
 </section>
 
 
