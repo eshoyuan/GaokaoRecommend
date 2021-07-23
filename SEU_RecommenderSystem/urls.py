@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
-from . import testdb, views
+from . import testdb
 import recommend
 
 # 设置了默认视图为首页
@@ -26,5 +26,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('testdb/', testdb.testdb),
     path('', recommend.views.welcome),  # 若路由为空，返回welcome页面，即设为首页
-    path('rec/', views.recResuts, name='rec'),
 ]
