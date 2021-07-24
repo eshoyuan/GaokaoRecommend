@@ -53,15 +53,22 @@ class MajorRank(models.Model):
     # 专业名字，字符
    #major_text = models.CharField(max_length=20)
     # 2016排名，整型
-    rank_2016 = models.IntegerField()
+    rank_2016 = models.IntegerField(default=0)
     # 2017排名，整型
-    rank_2017 = models.IntegerField()
+    rank_2017 = models.IntegerField(default=0)
     # 2018排名，整型
-    rank_2018 = models.IntegerField()
+    rank_2018 = models.IntegerField(default=0)
     # 2019排名，整型
-    rank_2019 = models.IntegerField()
+    rank_2019 = models.IntegerField(default=0)
     # 2020排名，整型
     #rank_2020 = models.IntegerField(default=0)
     class Meta:
         db_table = 'recommend_majorrank'
+#预测录取名次
+class Collegeprediction(models.Model):
+    school_text = models.CharField(max_length=40)
+    pre_rank=models.IntegerField(default=-1)
+    pre_acc=models.CharField(max_length=200)
+    class Meta:
+        db_table = 'recommend_prediction'
 
