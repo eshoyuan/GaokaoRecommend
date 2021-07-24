@@ -1,10 +1,10 @@
-import numpy as np
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 from .models import CollegeApplication
+from .models import CollegeInformation
 from collections import Counter
-
+import copy
 
 def welcome(request):
     return render(request, "recommend/welcome.html")
@@ -63,17 +63,6 @@ def new_page(request):
     results_list_0 = CollegeApplication.objects.filter(request=0).filter(rank_int__gt=Range).order_by('rank_int')
     results_list_1 = CollegeApplication.objects.filter(request=1).filter(rank_int__gt=Range).order_by('rank_int')
     result = []
-    for i in results_list_0:
-        request_list = [int(i.Phy),
-                        int(i.Che),
-                        int(i.Bio),
-                        int(i.Pol),
-                        int(i.His),
-                        int(i.Geo),
-                        ]
-        temp = [chosen_list[i] - request_list[i] for i in range(len(chosen_list))]
-        if -1 not in temp:
-            result.append(i)
     for i in results_list_1:
         request_list = [int(i.Phy),
                         int(i.Che),
@@ -85,9 +74,31 @@ def new_page(request):
         temp = [chosen_list[i] - request_list[i] for i in range(len(chosen_list))]
         c1 = Counter(request_list)[1]
         c2 = Counter(temp)[-1]
-        print(c1, c2)
         if c2 <= c1 - 1:
             result.append(i)
+    for i in results_list_0:
+        request_list = [int(i.Phy),
+                        int(i.Che),
+                        int(i.Bio),
+                        int(i.Pol),
+                        int(i.His),
+                        int(i.Geo),
+                        ]
+        temp = [chosen_list[i] - request_list[i] for i in range(len(chosen_list))]
+        if -1 not in temp:
+            result.append(i)
+    result_safe = copy.deepcopy(result)
+    result_gamble = copy.deepcopy(result)
+    # result_gamble为'冲'
+    result_gamble.sort(key=lambda k: (k.rank_int + float(
+        CollegeInformation.objects.filter(school_text=k.school_text).first().rank_var_float) / 1000000))
+    # result为'保'
+    result.sort(key=lambda k: (k.rank_int + 3*float(
+        CollegeInformation.objects.filter(school_text=k.school_text).first().rank_ave_float)))
+    # result_safe为'稳'
+    result_safe.sort(key=lambda k: (k.rank_int - float(
+        CollegeInformation.objects.filter(school_text=k.school_text).first().rank_var_float) / 1000000))
+    # 之后可以在前端添加，将result_safe和result_gamble也一起输出
     return render(request, 'recommend/return.html', {  # 由table.html修改为results.html
-        'collegeapplication': result
+        'collegeapplication': result  # 这里目前只输出'保'的结果
     })
