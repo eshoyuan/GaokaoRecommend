@@ -24,6 +24,5 @@ import recommend
 urlpatterns = [
     path('recommend/', include('recommend.urls')),
     path('admin/', admin.site.urls),
-    path('testdb/', testdb.testdb),
     path('', recommend.views.welcome),  # 若路由为空，返回welcome页面，即设为首页
 ]
