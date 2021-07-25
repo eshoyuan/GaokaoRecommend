@@ -5,15 +5,8 @@
     <title>My Results page</title>
   </head>
   <body>
-  {% if collegeapplication%}
     {% for results in collegeapplication %}
-         {% if forloop.counter < 4 %}
         <li>{{ results.school_text }}{{ results.major_text}}</li>
-        {% endif %}
     {% endfor %}
-  {% else %}
-    <p>No recommend are available.</p>
-  {% endif %}
-    <p>This is my results</p>
   </body>
 </html>

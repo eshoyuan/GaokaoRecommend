@@ -1442,8 +1442,8 @@ p.uppercase, .p.uppercase,
 }
 
 .fix-8-12 {
-  /*max-width: 743px !important;*/
-  max-width: 300px !important;
+  max-width: 743px !important;
+  /*max-width: 300px !important;*/
 }
 
 .fix-9-12 {
@@ -2581,7 +2581,7 @@ html.mobile .showForMobileInline {
   position: fixed;
   top: 0;
   right: 0;
-  width: 320px;
+  width: 768px;
   max-width: 90%;
   height: 100%;
   color: #fff;
