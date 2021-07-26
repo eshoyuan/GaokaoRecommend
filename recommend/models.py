@@ -17,6 +17,7 @@ class CollegeApplication(models.Model):
     is_985 = models.BooleanField(default=0)
     # 211
     is_211 = models.BooleanField(default=0)
+    location = models.IntegerField(default=2)
     # 专业选课要求,0表示不作要求，1表示选一个即可，-1表示都要选
     Phy = models.IntegerField(default=0)
     Che = models.IntegerField(default=0)
@@ -51,7 +52,7 @@ class MajorRank(models.Model):
     objects = None
     school_text = models.CharField(max_length=40)
     # 专业名字，字符
-   #major_text = models.CharField(max_length=20)
+    # major_text = models.CharField(max_length=20)
     # 2016排名，整型
     rank_2016 = models.IntegerField(default=0)
     # 2017排名，整型
@@ -60,15 +61,18 @@ class MajorRank(models.Model):
     rank_2018 = models.IntegerField(default=0)
     # 2019排名，整型
     rank_2019 = models.IntegerField(default=0)
+
     # 2020排名，整型
-    #rank_2020 = models.IntegerField(default=0)
+    # rank_2020 = models.IntegerField(default=0)
     class Meta:
         db_table = 'recommend_majorrank'
-#预测录取名次
+
+
+# 预测录取名次
 class Collegeprediction(models.Model):
     school_text = models.CharField(max_length=40)
-    pre_rank=models.IntegerField(default=-1)
-    pre_acc=models.CharField(max_length=200)
+    pre_rank = models.IntegerField(default=-1)
+    pre_acc = models.CharField(max_length=200)
+
     class Meta:
         db_table = 'recommend_prediction'
-
