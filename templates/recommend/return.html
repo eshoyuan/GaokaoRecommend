@@ -192,24 +192,51 @@
 {#    {% endif %}#}
 {#    </p>#}
 {#    {% endfor %}#}
-{#</table>#}
-           <li class="selected"><center><table  width="768px" align="center"><tr><th>学校</th><th>专业</th><th>预计排名</th></tr><tr>
-
-               {% for results in collegeapplication %}
-               {% if forloop.counter  < 11 %}
-                   <tr align="center"><td><a href="url" target="_blank">{{results.school_text}}</a></a></td><td>{{ results.major_text}}</td><td>{{ results.rank_int }}</td></tr>
-               {% endif %}
-                {% endfor %}
-           </table></center></li>
-              <li><center><table class="wide" ><tr><th>名称</th><th>官网</th><th>性质</th></tr><tr><td>C语言中文网1</td><td>http://c.biancheng.net/</td><td>教育</td></table></center></li>
-            <li><center><table class="wide" ><tr><th>名称</th><th>官网</th><th>性质</th></tr><tr><td>C语言中文网2</td><td>http://c.biancheng.net/</td><td>教育</td></table></center></li>
-<!--              <li><img src="assets/img/iphone-82-3.png" class="wide" alt="iPhone Thumbnail"/></li>-->
-<!--              <li><img src="assets/img/iphone-82-4.png" class="wide" alt="iPhone Thumbnail"/></li>-->
+                {#</table>#}
+                <li class="selected">
+                    <div style="text-align: center;">
+                    <table width="768" align="center">
+                        <tr align="center">保</tr>
+                        <tr><th>学校</th><th>专业</th><th>预计排名</th></tr><tr>
+                        {% for results in collegeapplication %}
+                            {% if forloop.counter  < 11 %}
+                                <tr align="center"><td><a href='https://gaokao.baidu.com/gaokao/m/school/home?word={{results.school_text}}' target="_blank">{{results.school_text}}</a></td><td>{{ results.major_text}}</td><td>{{ results.rank_int }}</td></tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                    </div>
+                </li>
+                <li class="selected">
+                    <div style="text-align: center;">
+                    <table width="768" align="center">
+                        <tr align="center">稳</tr>
+                        <tr><th>学校</th><th>专业</th><th>预计排名</th></tr><tr>
+                        {% for results in safe %}
+                            {% if forloop.counter  < 11 %}
+                                <tr align="center"><td><a href='https://gaokao.baidu.com/gaokao/m/school/home?word={{results.school_text}}' target="_blank">{{results.school_text}}</a></td><td>{{ results.major_text}}</td><td>{{ results.rank_int }}</td></tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                    </div>
+                </li>
+                <li class="selected">
+                    <div style="text-align: center;">
+                    <table width="768" align="center">
+                        <tr align="center">冲</tr>
+                        <tr><th>学校</th><th>专业</th><th>预计排名</th></tr><tr>
+                        {% for results in gamble %}
+                            {% if forloop.counter  < 11 %}
+                                <tr align="center"><td><a href='https://gaokao.baidu.com/gaokao/m/school/home?word={{results.school_text}}' target="_blank">{{results.school_text}}</a></td><td>{{ results.major_text}}</td><td>{{ results.rank_int }}</td></tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                    </div>
+                </li>
             </ul>
             <ul class="controller dots ae-3 fromBottom" data-slider-id="82-0">
               <li class="dot selected"></li>
-              <li class="dot selected"></li>
-              <li class="dot selected"></li>
+              <li class="dot unselected"></li>
+              <li class="dot unselected"></li>
             </ul>
           </div>
             <!--

@@ -59,16 +59,16 @@ def new_page(request):
     result_gamble = copy.deepcopy(result)
     # result_gamble为'冲'
     result_gamble.sort(key=lambda k: (k.rank_int + float(
-        CollegeInformation.objects.filter(school_text=k.school_text).first().rank_var_float) / 1000000))
+        CollegeInformation.objects.filter(school_text=k.school_text).first().rank_var_float) / 100000))
     # result为'保'
     result.sort(key=lambda k: (k.rank_int + 3 * float(
         CollegeInformation.objects.filter(school_text=k.school_text).first().rank_ave_float)))
     # result_safe为'稳'
     result_safe.sort(key=lambda k: (k.rank_int - float(
-        CollegeInformation.objects.filter(school_text=k.school_text).first().rank_var_float) / 1000000))
+        CollegeInformation.objects.filter(school_text=k.school_text).first().rank_var_float) / 100000))
     # 之后可以在前端添加，将result_safe和result_gamble也一起输出
     return render(request, 'recommend/return.html', {  # 由table.html修改为results.html
-        'collegeapplication': result  # 这里目前只输出'保'的结果
+        'collegeapplication': result, 'safe': result_safe, 'gamble': result_gamble  # 这里目前只输出'保'的结果
     })
 
 
