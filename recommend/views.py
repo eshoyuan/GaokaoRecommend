@@ -14,6 +14,8 @@ def welcome(request):
 # 新页面
 def new_page(request):
     Range = request.GET.get("input_range")
+    Location = request.GET.get("location")
+    Title = request.GET.get("title")
     get_list = [
         request.GET.get('cbox_Phy'),
         request.GET.get('cbox_Che'),
@@ -28,8 +30,22 @@ def new_page(request):
             chosen_list.append(1)
         else:
             chosen_list.append(0)
-    results_list_0 = CollegeApplication.objects.filter(request=0).filter(rank_int__gt=Range).order_by('rank_int')
-    results_list_1 = CollegeApplication.objects.filter(request=1).filter(rank_int__gt=Range).order_by('rank_int')
+    if Location != "-1" and Title != "-1":
+        if Title == 0:
+            results_list_0 = CollegeApplication.objects.filter(request=0).filter(rank_int__gt=int(Range) - 100).filter(
+                location=Location).filter(is_985=1).order_by('rank_int')
+            results_list_1 = CollegeApplication.objects.filter(request=1).filter(rank_int__gt=int(Range) - 100).filter(
+                location=Location).filter(is_985=1).order_by('rank_int')
+        else:
+            results_list_0 = CollegeApplication.objects.filter(request=0).filter(rank_int__gt=int(Range) - 100).filter(
+                location=Location).filter(is_211=1).order_by('rank_int')
+            results_list_1 = CollegeApplication.objects.filter(request=1).filter(rank_int__gt=int(Range) - 100).filter(
+                location=Location).filter(is_211=1).order_by('rank_int')
+    else:
+        results_list_0 = CollegeApplication.objects.filter(request=0).filter(rank_int__gt=int(Range) - 100).order_by(
+            'rank_int')
+        results_list_1 = CollegeApplication.objects.filter(request=1).filter(rank_int__gt=int(Range) - 100).order_by(
+            'rank_int')
     result = []
     for i in results_list_1:
         request_list = [int(i.Phy),

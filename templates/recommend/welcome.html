@@ -70,19 +70,18 @@
                         </select>
                         <input type="number" class="input-9 ae-5 fromCenter" name="input_range" placeholder="排位"
                                val=""/>
-                        <select type="prov" class="input-9 ae-4 fromCenter">
+                        <select type="prov" class="input-9 ae-4 fromCenter" name="location">
                             <option selected="selected" disabled>目标区域</option>
-                            <option >长三角</option>
-                            <option >珠三角</option>
-                            <option >京津冀</option>
-                            <option >内陆地区</option>
-                            <option >不限</option>
+                            <option value="1">长三角</option>
+                            <option value="0">京津冀</option>
+                            <option value="2">内陆</option>
+                            <option value="-1">不限</option>
                         </select>
-                        <select type="prov" class="input-9 ae-4 fromCenter">
-                            <option selected="selected" disabled>985/211</option>
-                            <option >985</option>
-                            <option >211</option>
-                            <option >不限</option>
+                        <select type="prov" class="input-9 ae-4 fromCenter" name="title">
+                            <option selected="selected" disabled>学校等级</option>
+                            <option value="0">985及以上</option>
+                            <option value="1">211及以上</option>
+                            <option value="-1">不限</option>
                         </select>
                         <!--</form>-->
                         <script language="javascript">
