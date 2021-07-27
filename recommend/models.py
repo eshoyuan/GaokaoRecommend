@@ -76,3 +76,26 @@ class Collegeprediction(models.Model):
 
     class Meta:
         db_table = 'recommend_prediction'
+
+#完善历年录取信息
+class Collegelast(models.Model):
+    # 学校名字，字符
+    school_text = models.CharField(max_length=20, default='')
+    # 专业名字，字符
+    major_text = models.CharField(max_length=20, default='')
+    # 排名，整型
+    rank_int = models.IntegerField(default=0)
+    #年份
+    year_int = models.IntegerField(default=0)
+    # 专业详情
+    major_situation_text = models.CharField(max_length=200, default='')
+
+
+    # 定义了一个函数，查询时会返回学校名字+专业
+    def __str__(self):
+        return self.school_text + self.major_text
+
+    # 定义数据表
+    class Meta:
+        db_table = 'recommend_last'
+
