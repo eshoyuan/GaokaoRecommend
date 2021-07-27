@@ -10,4 +10,5 @@ urlpatterns = [
     path('table.html/', views.information),
     path('welcome.html/output', views.new_page),
     path('', views.new_page),  # 返回历年录取数据
+    path('welcome.html/test.html/', views.test),
 ]

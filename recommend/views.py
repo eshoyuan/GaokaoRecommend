@@ -80,3 +80,8 @@ def news(request):
 # 返回历年数据
 def information(request):
     return render(request, 'recommend/table.html', {'collegelast':Collegelast.objects.all()})
+
+def test(request):
+    school = request.GET.get("school")
+    major = request.GET.get("major")
+    return render(request, 'recommend/test.html', {'collegelast': Collegelast.objects.all(), 'school': school, 'major': major})
