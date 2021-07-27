@@ -105,4 +105,4 @@ def news(request):
 
 # 返回历年数据
 def information(request):
-    return render(request, 'recommend/table.html', {'collegeapplication':CollegeApplication.objects.all()})
+    return render(request, 'recommend/table.html', {'collegelast':Collegelast.objects.all()})
