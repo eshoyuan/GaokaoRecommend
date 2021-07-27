@@ -224,9 +224,9 @@
                 <li class="selected">
                     <div style="text-align: center;">
                     <table class="hovertable" width="768" align="center">
-                        <tr align="center"><h2>保</h2></tr>
+                        <tr align="center"><h2>冲</h2></tr>
                         <tr><th><h3>学校</h3></th><th><h3>专业</h3></th><th><h3>预计排名</h3></th></tr><tr>
-                        {% for results in collegeapplication %}
+                        {% for results in gamble %}
                             {% if forloop.counter  < 7 %}
                                 <tr align="center"><td width="300"><a href='https://gaokao.baidu.com/gaokao/m/school/home?word={{results.school_text}}' target="_blank"><h3>{{results.school_text}}</h3></a></td><td width="300"><h3><a href="test.html?school={{ results.school_text }}&major={{ results.major_text}}">{{ results.major_text}}</a></h3></td><td width="150"><h3>{{ results.rank_int }}</h3></td></tr>
                             {% endif %}
@@ -239,7 +239,7 @@
                     <table class="hovertable" width="768" align="center">
                         <tr align="center"><h2>稳</h2></tr>
                         <tr><th><h3>学校</h3></th><th><h3>专业</h3></th><th><h3>预计排名</h3></th></tr><tr>
-                        {% for results in safe %}
+                        {% for results in collegeapplication %}
                             {% if forloop.counter  < 7 %}
                                 <tr align="center"><td width="300"><a href='https://gaokao.baidu.com/gaokao/m/school/home?word={{results.school_text}}' target="_blank"><h3>{{results.school_text}}</h3></a></td><td width="300"><h3><a href="test.html?school={{ results.school_text }}&major={{ results.major_text}}">{{ results.major_text}}</a></h3></td><td width="150"><h3>{{ results.rank_int }}</h3></td></tr>
                             {% endif %}
@@ -250,9 +250,9 @@
                 <li class="unselected">
                     <div style="text-align: center;">
                     <table class="hovertable" width="768" align="center">
-                        <tr align="center"><h2>冲</h2></tr>
+                        <tr align="center"><h2>保</h2></tr>
                         <tr><th><h3>学校</h3></th><th><h3>专业</h3></th><th><h3>预计排名</h3></th></tr><tr>
-                        {% for results in gamble %}
+                        {% for results in safe %}
                             {% if forloop.counter  < 7 %}
                                 <tr align="center"><td width="300"><a href='https://gaokao.baidu.com/gaokao/m/school/home?word={{results.school_text}}' target="_blank"><h3>{{results.school_text}}</h3></a></td><td width="300"><h3><a href="test.html?school={{ results.school_text }}&major={{ results.major_text}}">{{ results.major_text}}</a></h3></td><td width="150"><h3>{{ results.rank_int }}</h3></td></tr>
                             {% endif %}
@@ -284,72 +284,7 @@
      {% load static %}
   <div class="background" style="background-image:url({%  static 'return/assets/img/background/bg.jpg'%})"></div>
 </section>
-<section data-name="slide-2" class="slide fade-6 kenBurns">
-   <head>
 
-        <meta charset="utf-8"><link rel="icon" href="https://jscdn.com.cn/highcharts/images/favicon.ico">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            /* css 代码  */
-        </style>
-        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
-        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
-        <script src="https://cdn.highcharts.com.cn/highcharts/modules/series-label.js"></script>
-        <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>
-        <script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
-    </head>
-    <body>
-        <div id="container" style="max-width:800px;height:400px; position: absolute;
-left: 200px;
-top: 200px;"></div>
-        <script>
-            var chart = Highcharts.chart('container', {
-		title: {
-				text: '2017 ~ 2020 年院校分数线'
-		},
-                xAxis: {
-		allowDecimals:false
-	},
-		yAxis: {
-				title: {
-						text: '就业人数'
-				}
-		},
-		legend: {
-				layout: 'vertical',
-				align: 'right',
-				verticalAlign: 'middle'
-		},
-		plotOptions: {
-				series: {
-						label: {
-								connectorAllowed: false
-						},
-						pointStart: 2017
-				}
-		},
-		series: [{
-				name: '东南大学',
-				data: [400, 405, 398, 421]
-		}],
-		responsive: {
-				rules: [{
-						condition: {
-								maxWidth: 500
-						},
-						chartOptions: {
-								legend: {
-										layout: 'horizontal',
-										align: 'center',
-										verticalAlign: 'bottom'
-								}
-						}
-				}]
-		}
-});
-        </script>
-    </body>
-</section>
 <nav class="panel bottom lastSlideOnly">
   <div class="sections desktop">
     <div class="left"><a href="#" class="button hollow"><img src="assets/img/appstore.jpg" width="112" height="42"/></a></div>
