@@ -84,4 +84,14 @@ def information(request):
 def test(request):
     school = request.GET.get("school")
     major = request.GET.get("major")
-    return render(request, 'recommend/test.html', {'collegelast': Collegelast.objects.all(), 'school': school, 'major': major})
+    for item in Collegelast.objects.all():
+        if item.school_text==school and item.major_text==major:
+            if item.year_int==2017:
+                rank1=item.rank_int
+            if item.year_int == 2018:
+                rank2 = item.rank_int
+            if item.year_int == 2019:
+                rank3 = item.rank_int
+            if item.year_int == 2020:
+                rank4 = item.rank_int
+    return render(request, 'recommend/test.html', {'rank1':rank1,'rank2':rank2,'rank3':rank3,'rank4':rank4})
