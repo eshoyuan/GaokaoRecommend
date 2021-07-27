@@ -59,7 +59,7 @@ def new_page(request):
             chosen_list.append(1)
         else:
             chosen_list.append(0)
-    if Location != "-1" and Title != "-1":
+    if Location and Title and int(Location) >= 0 and int(Title) >= 0:
         if Title == 0:
             results_list_0 = CollegeApplication.objects.filter(request=0).filter(
                 rank_int__gte=int(Range) - 250).order_by('rank_int').filter(location=Location).filter(is_985=1)
