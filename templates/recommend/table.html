@@ -5,60 +5,76 @@
     <title>历年录取分数线查询</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
-			table {
-				width: 70%;
-				background: #ccc;
-				margin:10px auto;
-				border-collapse: collapse;
-			}
-			th,td {
-				height: 25px;
-				line-height: 25px;
-				text-align: center;
-				border: 1px solid #ccc;
-			}
-			th {
-				background: #eee;
-				font-weight: normal;
-			}
-			tr {
-				background: #fff;
-			}
-			tr:hover {
-				background: #cc0;
-			}
-			td a {
-				color: #06f;
-				text-decoration: none;
-			}
-			td a:hover {
-				color: #06f;
-				text-decoration: underline;
-			}
-            .table tr:nth-child(odd){
-                background-color:#dcecf9;
-            }
-            .table tr:nth-child(even) {
-                background-color: #ffffff;
-            }
-    </style>
+        table {
+            width: 70%;
+            background: #ccc;
+            margin: 15px auto;
+            border-collapse: collapse;
+            table-layout: fixed;
+            white-space: nowrap;
+        }
 
-    <style>
-    .center {
-    text-align: center;
-    }
-    </style>
-    <style>
-    body
-    {
-	background-image:url("../../static/recommend/assets/img/background/img-75.jpg" );
-    }
+        td {
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        th {
+            background: #eee;
+            font-weight: normal;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        tr {
+            background: #fff;
+        }
+
+        tr:hover {
+            background: #cc0;
+            overflow: visible;
+            white-space: normal;
+        }
+
+        td a {
+            color: #06f;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            color: #06f;
+            text-decoration: underline;
+        }
+
+        .table tr:nth-child(odd) {
+            background-color: #dcecf9;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        body {
+            background-image: url("../../static/recommend/assets/img/background/img-75.jpg");
+        }
     </style>
 </head>
 <body>
 <h1 class="center" style="color: #FFFFFF; ">历年录取分数线查询</h1>
-<div class="center"><span style="color: #FFFFFF; ">按院校查询：</span><input name="key0" type="text" id="key0" onkeydown="onSearch()" value="" /></div>
-<div class="center"><span style="color: #FFFFFF; ">按专业查询：</span><input name="key1" type="text" id="key1" onkeydown="onSearch()" value=""/></div>
+<div class="center"><span style="color: #FFFFFF; ">按院校查询：</span><input name="key0" type="text" id="key0"
+                                                                       onkeydown="onSearch()" value=""/></div>
+<div class="center"><span style="color: #FFFFFF; ">按专业查询：</span><input name="key1" type="text" id="key1"
+                                                                       onkeydown="onSearch()" value=""/></div>
 <table id="store" class="table">
     <thead>
     <tr>
@@ -70,35 +86,35 @@
     </tr>
     </thead>
     <tbody>
-      {% for item in collegelast %}
+    {% for item in collegelast %}
         <tr>
-            <td> {{item.year_int}}</td>
-            <td> {{item.school_text}}</td>
-            <td> {{item.major_text}}</td>
-            <td> {{item.major_situation_text}}</td>
-            <td> {{item.rank_int}}</td>
+            <td> {{ item.year_int }}</td>
+            <td style="text-overflow:ellipsis;word-break:keep-all; white-space:nowrap;"> {{ item.school_text }}</td>
+            <td style="text-overflow:ellipsis;word-break:keep-all; white-space:nowrap;"> {{ item.major_text }}</td>
+            <td> {{ item.major_situation_text }}</td>
+            <td> {{ item.rank_int }}</td>
         </tr>
-        {% endfor %}
+    {% endfor %}
     </tbody>
 </table>
 <script>
-    function onSearch(obj,num){//js函数开始
-    setTimeout(function(){//因为是即时查询，需要用setTimeout进行延迟，让值写入到input内，再读取
-    var storeId = document.getElementById('store');//获取table的id标识
-    var rowsLength = storeId.rows.length;//表格总共有多少行
-    var s1 = document.getElementById('key0').value;//获取输入框的值
-    var s2 = document.getElementById('key1').value;//获取输入框的值
-    for(var i=1;i<rowsLength;i++){//按表的行数进行循环，本例第一行是标题，所以i=1，从第二行开始筛选（从0数起）
-      var searchText = storeId.rows[i].cells[1].innerHTML;//取得table行，列的值
-      var searchText1 = storeId.rows[i].cells[2].innerHTML;//取得table行，列的值
-      if(searchText.match(s1)&&searchText1.match(s2)){//用match函数进行筛选，如果input的值，即变量 key的值为空，返回的是ture，
-        storeId.rows[i].style.display='';//显示行操作，
-      }else{
-        storeId.rows[i].style.display='none';//隐藏行操作
-      }
+    function onSearch(obj, num) {//js函数开始
+        setTimeout(function () {//因为是即时查询，需要用setTimeout进行延迟，让值写入到input内，再读取
+            var storeId = document.getElementById('store');//获取table的id标识
+            var rowsLength = storeId.rows.length;//表格总共有多少行
+            var s1 = document.getElementById('key0').value;//获取输入框的值
+            var s2 = document.getElementById('key1').value;//获取输入框的值
+            for (var i = 1; i < rowsLength; i++) {//按表的行数进行循环，本例第一行是标题，所以i=1，从第二行开始筛选（从0数起）
+                var searchText = storeId.rows[i].cells[1].innerHTML;//取得table行，列的值
+                var searchText1 = storeId.rows[i].cells[2].innerHTML;//取得table行，列的值
+                if (searchText.match(s1) && searchText1.match(s2)) {//用match函数进行筛选，如果input的值，即变量 key的值为空，返回的是ture，
+                    storeId.rows[i].style.display = '';//显示行操作，
+                } else {
+                    storeId.rows[i].style.display = 'none';//隐藏行操作
+                }
+            }
+        }, 100);//100为延时时间
     }
-  },100);//100为延时时间
-}
-    </script>
+</script>
 </body>
 </html>
