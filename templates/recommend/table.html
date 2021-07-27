@@ -70,9 +70,9 @@
     </tr>
     </thead>
     <tbody>
-        {% for item in collegeapplication %}
+      {% for item in collegelast %}
         <tr>
-            <td> {{2020}}</td>
+            <td> {{item.year_int}}</td>
             <td> {{item.school_text}}</td>
             <td> {{item.major_text}}</td>
             <td> {{item.major_situation_text}}</td>
