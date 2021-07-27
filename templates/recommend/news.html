@@ -1,56 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap 实例</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <meta charset="utf-8">
-  <title>Bootstrap 实例 - 代码</title>
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>友情链接</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .bg {
+            background: url(../../static/recommend/assets/img/background/img-75.jpg) no-repeat center;
+            background-size: contain;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="jumbotron">
-    <h1>高考新闻</h1>
-    <p></p>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-     <h2>关于高考</h2>
-      <pre>
-        <a href="https://www.baidu.com/s?tn=88093251_92_hao_pg&wd=%E5%B1%B1%E4%B8%9C%E6%96%B0%E9%AB%98%E8%80%83&ie=utf-8" target="_blank"><h3>山东新高考</h3></a>
-        <a href="http://www.sdzk.cn/" target="_blank"><h3>教育招生网</h3></a>
-        <a href="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=88093251_92_hao_pg&wd=%E5%B1%B1%E4%B8%9C%E7%9C%81%E6%89%B9%E6%AC%A1%E7%BA%BF&oq=%25E9%25AB%2598%25E8%2580%2583&rsv_pq=ed0cba8e0006d25d&rsv_t=868epT4WELQ24SF5WpawZkg%2BCoG5elQMBU783xU24Mq1qcJ7zs%2FmSoLtlW3NxVKlp1nRfPQ6hyVp&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_btype=t&inputT=4853&rsv_sug3=143&rsv_sug1=123&rsv_sug7=100&rsv_sug2=0&rsv_sug4=5227" target="_blank"><h3>省批次线</h3></a>
-        <a href="https://gkcx.eol.cn/colleges/bypart" target="_blank"><h3>一分一段表</h3></a>
-      </pre>
-    </div>
-    <div class="col-sm-4">
-      <h2>关于择校</h2>
-      <pre>
-        <a href="https://www.baidu.com/s?wd=%E5%8F%8C%E4%B8%80%E6%B5%81%E5%A4%A7%E5%AD%A6&rsv_spt=1&rsv_iqid=0x8e815c450001a3d9&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=1&rsv_dl=tb&oq=211%25E5%25A4%25A7%25E5%25AD%25A6&rsv_btype=t&inputT=2495&rsv_t=2208Nt2ikFeY1%2F5050grTUxRXmVVnjxR0JKKAprHYAA24ITL157mhJ2DrJfnQxKsX3cT&rsv_pq=ed91a898000453ba&rsv_sug3=21&rsv_sug1=29&rsv_sug7=100&rsv_sug2=0&rsv_sug4=7211" target="_blank"><h3>双一流大学</h3></a>
-        <a href="https://www.baidu.com/s?wd=985%E5%A4%A7%E5%AD%A6&rsv_spt=1&rsv_iqid=0x8e815c450001a3d9&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=tb&rsv_sug3=9&rsv_sug1=9&rsv_sug7=100&rsv_sug2=0&rsv_btype=i&prefixsug=985%25E5%25A4%25A7%25E5%25AD%25A6&rsp=5&inputT=2467&rsv_sug4=3302" target="_blank"><h3>985大学</h3></a>
-        <a href="https://www.baidu.com/s?wd=211%E5%A4%A7%E5%AD%A6&rsv_spt=1&rsv_iqid=0x8e815c450001a3d9&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=1&rsv_dl=tb&oq=985%25E5%25A4%25A7%25E5%25AD%25A6&rsv_btype=i&inputT=2467&rsv_t=8dbeYMKJeIg9DA1P3JvspJ3udkXXn8R3NhzzflJpq0pjhlBnWLdgAto9K%2FQ1RILXWTdO&rsv_sug3=12&rsv_sug1=13&rsv_sug7=100&rsv_pq=d22f8fc00005f090&bs=985%E5%A4%A7%E5%AD%A6" target="_blank"><h3>211大学</h3></a>
-        <a href="https://www.baidu.com/s?wd=%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6&rsv_spt=1&rsv_iqid=0x8e815c450001a3d9&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=1&rsv_dl=tb&oq=%25E5%258F%258C%25E4%25B8%2580%25E6%25B5%2581%25E5%25A4%25A7%25E5%25AD%25A6&rsv_btype=t&inputT=2495&rsv_t=97bbiENyZRIQtOlER2Vi93JV5OPl76qZlZnSRCvDlV%2BbDr0TMiVv9gPQ%2BK4m%2FklAB2Bt&rsv_pq=b0a933d40004047e&rsv_sug3=23&rsv_sug1=34&rsv_sug7=100&bs=%E5%8F%8C%E4%B8%80%E6%B5%81%E5%A4%A7%E5%AD%A6" target="_blank"><h3>东南大学</h3></a>
-      </pre>
-    </div>
-    <div class="col-sm-4">
-      <h2>关于东大</h2>
-      <pre>
-        <a href="https://news.seu.edu.cn/" target="_blank"><h3>东南新闻</h3></a>
-        <a href="https://www.seu.edu.cn/28438/list.htm" target="_blank"><h3>院系设置</h3></a>
-        <a href=" https://yingxin.seu.edu.cn/" target="_blank"><h3>东大迎新</h3></a>
-        <a href="https://www.seu.edu.cn/_t2492/28450/list.psp" target="_blank"><h3>师资力量</h3></a>
-      </pre>
+<div class="list-group">
+    <a href="http://www.sd.xinhuanet.com/edu/2021-07/26/c_1127694994.htm"
+       class="list-group-item list-group-item-action flex-column align-items-start ">
+        <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1">山东2021高考普通类常规批第2次志愿26日起填报</h3>
+        </div>
+        <p class="mb-1">山东2021年高考普通类常规批第2次志愿填报今日开始填报,具体填报时间为7月26日-28日(每天9:00-18:00)。</p>
+        <small>2021年07月26日</small>
+        <small class>来源：齐鲁晚报</small>
+    </a>
 
-    </div>
-  </div>
-</div>
+    <a href="http://sd.sdnews.com.cn/yw/202107/t20210725_2937989.htm"
+       class="list-group-item list-group-item-action flex-column align-items-start  active">
+        <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1">高考普通类本科还剩249个计划，山东大学剩余7个计划</h3>
+        </div>
+        <p class="mb-1">7月24日，省招考院发布2021年普通类和体育类常规批（本科）第2次志愿院校专业计划，记者统计发现，今年普通类本科计划只剩249个，其中有180个是新增计划。</p>
+        <small>2021年07月25日</small>
+        <small class>来源：济南日报</small>
+    </a>
+
+
+    <a href="http://www.sd.xinhuanet.com/news/2021-07/22/c_1127680692.htm"
+       class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1">山东高考普通类常规批第1次志愿计划完成率99.99%</h3>
+
+        </div>
+        <p class="mb-1">7月21日上午，山东省教育招生考试院举行2021年高考录取媒体开放日活动，通报了目前山东省普通高考录取工作情况。</p>
+        <small>2021年07月22日</small>
+        <small class>来源：大众日报</small>
+    </a>
+
+    <a href="http://edu.bandao.cn/a/525459.html"
+       class="list-group-item list-group-item-action flex-column align-items-start  active">
+        <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1">山东高考最新录取进度来啦：普通类常规批第1次志愿剩26个计划</h3>
+        </div>
+        <p class="mb-1">在7月21日举行的媒体开放日上，省招考院通报了招生录取进度。</p>
+        <small class>2021年07月21日</small>
+        <small class>来源：大众报业·半岛网</small>
+    </a>
+
+    <a href="http://www.sd.xinhuanet.com/news/2021-07/13/c_1127648514.htm"
+       class="list-group-item list-group-item-action flex-column align-items-start ">
+        <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1">山东公布2021年高考录取结果查询时间表</h3>
+        </div>
+        <p class="mb-1">山东省2021年普通高校招生录取工作日前已全面展开。</p>
+        <small>2021年07月13日</small>
+        <small class>来源：大众日报</small>
+    </a>
+
+    <a href="https://sd.dzwww.com/sdnews/202107/t20210704_8724068.htm"
+       class="list-group-item list-group-item-action flex-column align-items-start  active">
+        <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1">@山东高考生，这些批次7月5日起填报志愿！</h3>
+        </div>
+        <p class="mb-1">今年高考普通类（特殊类型批和常规批本科计划）、艺术类本科批、体育类（常规批本科计划）和春季高考本科批第1次志愿填报于7月5日至8日进行</p>
+        <small>2021年07月04日</small>
+        <small class>来源：大众报业</small>
+    </a>
+
+    <a href="https://www.sohu.com/a/474910151_716280"
+       class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1">高考志愿填报如何捡漏？如何低分高就？山东考生捡漏大全</h3>
+        </div>
+        <p class="mb-1">高考志愿填报如何捡漏？如何实现低分高就？请看山东考生高考志愿捡漏大全，为什么能够捡漏？</p>
+        <small>2021年07月01日</small>
+        <small class>来源：搜狐新闻</small>
+    </a>
+
 </div>
 </body>
 </html>
