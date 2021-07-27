@@ -28,6 +28,34 @@
 	<!-- Fonts and Material Icons -->
 	<link rel="stylesheet" as="font" href="https://fonts.proxy.ustclug.org/css?family=Roboto:100,300,400,500,600,700|Material+Icons"/>
 
+    <!-- CSS goes in the document HEAD or added to your external stylesheet -->
+    <style type="text/css">
+        table.hovertable {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #999999;
+            border-collapse: collapse;
+        }
+        table.hovertable th {
+            background-color:#c3dde0;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9c6c9;
+        }
+        table.hovertable tr {
+            background-color:#d4e3e5;
+        }
+        table.hovertable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9c6c9;
+        }
+    </style>
+
 </head>
 <body class="slides chain simplifiedMobile animated">
 
@@ -195,12 +223,12 @@
                 {#</table>#}
                 <li class="selected">
                     <div style="text-align: center;">
-                    <table width="768" align="center">
+                    <table class="hovertable" width="768" align="center">
                         <tr align="center"><h2>保</h2></tr>
                         <tr><th><h3>学校</h3></th><th><h3>专业</h3></th><th><h3>预计排名</h3></th></tr><tr>
                         {% for results in collegeapplication %}
                             {% if forloop.counter  < 7 %}
-                                <tr align="center"><td><a href='https://gaokao.baidu.com/gaokao/m/school/home?word={{results.school_text}}' target="_blank"><h3>{{results.school_text}}</h3></a></td><td><h3><a href="test.html?school={{ results.school_text }}&major={{ results.major_text}}">{{ results.major_text}}</a></h3></td><td><h3>{{ results.rank_int }}</h3></td></tr>
+                                <tr align="center"><td width="300"><a href='https://gaokao.baidu.com/gaokao/m/school/home?word={{results.school_text}}' target="_blank"><h3>{{results.school_text}}</h3></a></td><td width="300"><h3><a href="test.html?school={{ results.school_text }}&major={{ results.major_text}}">{{ results.major_text}}</a></h3></td><td width="150"><h3>{{ results.rank_int }}</h3></td></tr>
                             {% endif %}
                         {% endfor %}
                     </table>
@@ -208,12 +236,12 @@
                 </li>
                 <li class="unselected">
                     <div style="text-align: center;">
-                    <table width="768" align="center">
+                    <table class="hovertable" width="768" align="center">
                         <tr align="center"><h2>稳</h2></tr>
                         <tr><th><h3>学校</h3></th><th><h3>专业</h3></th><th><h3>预计排名</h3></th></tr><tr>
                         {% for results in safe %}
                             {% if forloop.counter  < 7 %}
-                                <tr align="center"><td><a href='https://gaokao.baidu.com/gaokao/m/school/home?word={{results.school_text}}' target="_blank"><h3>{{results.school_text}}</h3></a></td><td><h3><a href="test.html?school={{ results.school_text }}&major={{ results.major_text}}">{{ results.major_text}}</a></h3></td><td><h3>{{ results.rank_int }}</h3></td></tr>
+                                <tr align="center"><td width="300"><a href='https://gaokao.baidu.com/gaokao/m/school/home?word={{results.school_text}}' target="_blank"><h3>{{results.school_text}}</h3></a></td><td width="300"><h3><a href="test.html?school={{ results.school_text }}&major={{ results.major_text}}">{{ results.major_text}}</a></h3></td><td width="150"><h3>{{ results.rank_int }}</h3></td></tr>
                             {% endif %}
                         {% endfor %}
                     </table>
@@ -221,12 +249,12 @@
                 </li>
                 <li class="unselected">
                     <div style="text-align: center;">
-                    <table width="768" align="center">
+                    <table class="hovertable" width="768" align="center">
                         <tr align="center"><h2>冲</h2></tr>
                         <tr><th><h3>学校</h3></th><th><h3>专业</h3></th><th><h3>预计排名</h3></th></tr><tr>
                         {% for results in gamble %}
                             {% if forloop.counter  < 7 %}
-                                <tr align="center"><td><a href='https://gaokao.baidu.com/gaokao/m/school/home?word={{results.school_text}}' target="_blank"><h3>{{results.school_text}}</h3></a></td><td><h3><a href="test.html?school={{ results.school_text }}&major={{ results.major_text}}">{{ results.major_text}}</a></h3></td><td><h3>{{ results.rank_int }}</h3></td></tr>
+                                <tr align="center"><td width="300"><a href='https://gaokao.baidu.com/gaokao/m/school/home?word={{results.school_text}}' target="_blank"><h3>{{results.school_text}}</h3></a></td><td width="300"><h3><a href="test.html?school={{ results.school_text }}&major={{ results.major_text}}">{{ results.major_text}}</a></h3></td><td width="150"><h3>{{ results.rank_int }}</h3></td></tr>
                             {% endif %}
                         {% endfor %}
                     </table>
