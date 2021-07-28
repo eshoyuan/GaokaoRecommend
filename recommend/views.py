@@ -58,7 +58,7 @@ def new_page(request):
             chosen_list.append(1)
         else:
             chosen_list.append(0)
-    if Location and Title and int(Location) >= 0 and int(Title) >= 0:
+    if Location and Title and (int(Location) >= 0 or int(Title) >= 0):
         if Title == 0:
             results_list_0 = CollegeApplication.objects.filter(request=0).filter(
                 rank_int__gte=int(Range) - 250).order_by('rank_int').filter(location=Location).filter(is_985=1)
@@ -76,8 +76,9 @@ def new_page(request):
             rank_int__gte=int(Range) - 250).order_by('rank_int')
     results_list_1_g = copy.deepcopy(results_list_1)
     results_list_0_g = copy.deepcopy(results_list_0)
-    results_list_1_n = results_list_1.filter(rank_int__gte=int(Range) - 50).filter(rank_int__lt=int(Range) + 150)
-    results_list_0_n = results_list_0.filter(rank_int__gte=int(Range) - 50).filter(rank_int__lt=int(Range) + 150)
+    # results_list_0_n = results_list_0.filter(rank_int__gte=int(Range) - 150).filter(rank_int__lt=int(Range) + 150)
+    results_list_0_n = results_list_0.filter(rank_int__gte=int(Range) - 150)
+    results_list_1_n = results_list_1.filter(rank_int__gte=int(Range) - 150)
     results_list_1_s = results_list_1.filter(rank_int__gte=int(Range) + 150)
     results_list_0_s = results_list_0.filter(rank_int__gte=int(Range) + 150)
     result_gamble = major_filter(results_list_1_g, results_list_0_g, chosen_list)
