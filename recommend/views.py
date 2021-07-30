@@ -53,34 +53,53 @@ def new_page(request):
         request.GET.get('cbox_Geo')
     ]
     chosen_list = []
+    counter = 0
     for i in get_list:
         if i == '1':
             chosen_list.append(1)
+            counter += 1
         else:
             chosen_list.append(0)
-    if Location and Title and (int(Location) >= 0 or int(Title) >= 0):
-        if Title == 0:
-            results_list_0 = CollegeApplication.objects.filter(request=0).filter(
-                rank_int__gte=int(Range) - 250).order_by('rank_int').filter(location=Location).filter(is_985=1)
-            results_list_1 = CollegeApplication.objects.filter(request=1).filter(
-                rank_int__gte=int(Range) - 250).order_by('rank_int').filter(location=Location).filter(is_985=1)
-        else:
-            results_list_0 = CollegeApplication.objects.filter(request=0).filter(
-                rank_int__gte=int(Range) - 250).order_by('rank_int').filter(location=Location).filter(is_211=1)
-            results_list_1 = CollegeApplication.objects.filter(request=1).filter(
-                rank_int__gte=int(Range) - 250).order_by('rank_int').filter(location=Location).filter(is_211=1)
-    else:
+    if counter > 3:
+        return HttpResponse("选择科目过多！")
+    if counter < 3:
+        return HttpResponse("选择科目过少！")
+    if int(Title) == -1:
         results_list_0 = CollegeApplication.objects.filter(request=0).filter(
-            rank_int__gte=int(Range) - 250).order_by('rank_int')
+            rank_int__gte=int(Range) - 350).order_by('rank_int')
         results_list_1 = CollegeApplication.objects.filter(request=1).filter(
-            rank_int__gte=int(Range) - 250).order_by('rank_int')
+            rank_int__gte=int(Range) - 350).order_by('rank_int')
+    if int(Title) == 0:
+        results_list_0 = CollegeApplication.objects.filter(request=0).filter(
+            rank_int__gte=int(Range) - 350).filter(is_985=1).order_by('rank_int')
+        results_list_1 = CollegeApplication.objects.filter(request=1).filter(
+            rank_int__gte=int(Range) - 350).filter(is_985=1).order_by('rank_int')
+    if int(Title) == 1:
+        results_list_0 = CollegeApplication.objects.filter(request=0).filter(
+            rank_int__gte=int(Range) - 350).filter(is_211=1).order_by('rank_int')
+        results_list_1 = CollegeApplication.objects.filter(request=1).filter(
+            rank_int__gte=int(Range) - 350).filter(is_211=1).order_by('rank_int')
+    if int(Location) >= 0 and int(Title) == -1:
+        results_list_0 = CollegeApplication.objects.filter(request=0).filter(
+            rank_int__gte=int(Range) - 350).order_by('rank_int').filter(location=Location)
+        results_list_1 = CollegeApplication.objects.filter(request=1).filter(
+            rank_int__gte=int(Range) - 350).order_by('rank_int').filter(location=Location)
+    if int(Location) >= 0 and int(Title) == 0:
+        results_list_0 = CollegeApplication.objects.filter(request=0).filter(
+            rank_int__gte=int(Range) - 350).order_by('rank_int').filter(location=Location).filter(is_985=1)
+        results_list_1 = CollegeApplication.objects.filter(request=1).filter(
+            rank_int__gte=int(Range) - 350).order_by('rank_int').filter(location=Location).filter(is_985=1)
+    if int(Location) >= 0 and int(Title) == 1:
+        results_list_0 = CollegeApplication.objects.filter(request=0).filter(
+            rank_int__gte=int(Range) - 250).order_by('rank_int').filter(location=Location).filter(is_211=1)
+        results_list_1 = CollegeApplication.objects.filter(request=1).filter(
+            rank_int__gte=int(Range) - 250).order_by('rank_int').filter(location=Location).filter(is_211=1)
     results_list_1_g = copy.deepcopy(results_list_1)
     results_list_0_g = copy.deepcopy(results_list_0)
-    # results_list_0_n = results_list_0.filter(rank_int__gte=int(Range) - 150).filter(rank_int__lt=int(Range) + 150)
-    results_list_0_n = results_list_0.filter(rank_int__gte=int(Range) - 150)
-    results_list_1_n = results_list_1.filter(rank_int__gte=int(Range) - 150)
-    results_list_1_s = results_list_1.filter(rank_int__gte=int(Range) + 150)
-    results_list_0_s = results_list_0.filter(rank_int__gte=int(Range) + 150)
+    results_list_0_n = results_list_0.filter(rank_int__gte=int(Range) - 150).filter(rank_int__lt=int(Range) + 200)
+    results_list_1_n = results_list_1.filter(rank_int__gte=int(Range) - 150).filter(rank_int__lt=int(Range) + 200)
+    results_list_1_s = results_list_1.filter(rank_int__gte=int(Range) + 200)
+    results_list_0_s = results_list_0.filter(rank_int__gte=int(Range) + 200)
     result_gamble = major_filter(results_list_1_g, results_list_0_g, chosen_list)
     result_safe = major_filter(results_list_1_s, results_list_0_s, chosen_list)
     result_normal = major_filter(results_list_1_n, results_list_0_n, chosen_list)
@@ -127,8 +146,3 @@ def test(request):
                 rank4 = item.rank_int
     return render(request, 'recommend/test.html',
                   {'rank1': rank1, 'rank2': rank2, 'rank3': rank3, 'rank4': rank4, "school": school, "major": major})
-
-
-
-
-
