@@ -87,16 +87,24 @@
                         <!--</form>-->
                         <script language="javascript">
                             function chkbox(elm) {
-                                var obj = document.getElementsByName("cbox");
+                                var obj1 = document.getElementsByName("cbox_Phy");
+                                var obj2 = document.getElementsByName("cbox_His");
+                                var obj3 = document.getElementsByName("cbox_Pol");
+                                var obj4 = document.getElementsByName("cbox_Geo");
+                                var obj5 = document.getElementsByName("cbox_Che");
+                                var obj6 = document.getElementsByName("cbox_Bio");
                                 var num = 0;
-                                for (var i = 0; i < obj.length; i++)
-                                    if (obj[i].checked) num++;
+
+                                if (obj1[0].checked) num++;
+                                if (obj2[0].checked) num++;
+                                if (obj3[0].checked) num++;
+                                if (obj4[0].checked) num++;
+                                if (obj5[0].checked) num++;
+                                if (obj6[0].checked) num++;
 
                                 if (num > 3) {
                                     alert("最多可以选择三个！");
-                                    for (var i = 0; i < obj.length; i++) {
-                                        elm.checked = false;
-                                    }
+                                    elm.checked = false;
                                 }
                             }
                         </script>
@@ -104,12 +112,12 @@
                         </head>
                         <br>
                         <p class="ae-3"><span class="opacity-8">请勾选您的 <b>选科信息</b></span></p>
-                        <label><input type="checkbox" name="cbox" value=1 onclick="chkbox(this);">物理</label>
-                        <label><input type="checkbox" name="cbox" value=1 onclick="chkbox(this);">历史</label>
-                        <label><input type="checkbox" name="cbox" value=1 onclick="chkbox(this);">政治</label>
-                        <label><input type="checkbox" name="cbox" value=1 onclick="chkbox(this);">地理</label>
-                        <label><input type="checkbox" name="cbox" value=1 onclick="chkbox(this);">化学</label>
-                        <label><input type="checkbox" name="cbox" value=1 onclick="chkbox(this);">生物</label>
+                        <label><input type="checkbox" name="cbox_Phy" value=1 onclick="chkbox(this);">物理</label>
+                        <label><input type="checkbox" name="cbox_His" value=1 onclick="chkbox(this);">历史</label>
+                        <label><input type="checkbox" name="cbox_Pol" value=1 onclick="chkbox(this);">政治</label>
+                        <label><input type="checkbox" name="cbox_Geo" value=1 onclick="chkbox(this);">地理</label>
+                        <label><input type="checkbox" name="cbox_Che" value=1 onclick="chkbox(this);">化学</label>
+                        <label><input type="checkbox" name="cbox_Bio" value=1 onclick="chkbox(this);">生物</label>
 
                         <p>
 
