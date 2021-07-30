@@ -221,6 +221,13 @@
 {#    </p>#}
 {#    {% endfor %}#}
                 {#</table>#}
+                 {% if messages %}
+                    <script>
+                        {% for msg in messages %}
+                            alert('{{ msg.message }}');
+                        {% endfor %}
+                    </script>
+                {% endif %}
                 <li class="selected">
                     <div style="text-align: center;">
                     <table class="hovertable" width="768" align="center">

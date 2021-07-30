@@ -4,7 +4,7 @@ from django.template import loader
 from .models import CollegeApplication, CollegeInformation, Collegelast
 from collections import Counter
 import copy
-
+from django.contrib import messages
 
 def welcome(request):
     return render(request, "recommend/welcome.html")
@@ -39,6 +39,10 @@ def major_filter(results_list_1, results_list_0, chosen_list):
     return result
 
 
+def under_select(request):
+    messages.success(request, "选择科目过少！数据可能并不准确！")
+
+
 # 新页面
 def new_page(request):
     Range = request.GET.get("input_range")
@@ -60,10 +64,9 @@ def new_page(request):
             counter += 1
         else:
             chosen_list.append(0)
-    if counter > 3:
-        return HttpResponse("选择科目过多！")
     if counter < 3:
-        return HttpResponse("选择科目过少！")
+        under_select(request)
+        print("????")
     if int(Title) == -1:
         results_list_0 = CollegeApplication.objects.filter(request=0).filter(
             rank_int__gte=int(Range) - 350).order_by('rank_int')
