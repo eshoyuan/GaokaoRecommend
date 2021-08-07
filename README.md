@@ -1,1 +1,1 @@
-There is a project from SEU. Our teammates are Wu Yongliang, Shen Yangyang, Guo Wen, Yuan Yixiao, Wang Kangqi. In this project, we are trying to establish a recommender system of National College Entrance Examnation.
+东南大学暑期学校项目，使用Django框架开发的新高考志愿填报系统。
